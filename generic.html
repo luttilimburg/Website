@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Luitwin Mallmann - Expertise</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+      /* Calendar Modal Styles */
+      .calendly-modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.8);
+        animation: fadeIn 0.3s;
+      }
+      .calendly-modal-content {
+        background: #fff;
+        margin: 5% auto;
+        padding: 20px;
+        width: 90%;
+        max-width: 900px;
+        border-radius: 8px;
+        position: relative;
+      }
+      .close-calendly {
+        color: #aaa;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .close-calendly:hover {
+        color: #333;
+      }
+      @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+      }
+    </style>
+  </head>
+  <body class="is-preload">
+    <div id="page-wrapper">
+
+      <header id="header">
+        <h1><a href="index.html">Luitwin Mallmann</a></h1>
+        <nav id="nav">
+          <ul>
+        <li><a href="index.html" class="scrolly">Startseite</a></li>
+        <li><a href="generic.html">Fachwissen</a></li>
+        <li><a href="elements.html">Über mich</a></li>
+        <li><a href="#contact" class="scrolly">Kontakt</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <article id="main">
+        <header>
+          <h2>Meine Expertise</h2>
+          <p>Ein detailliertes Profil meiner Fähigkeiten als Data Scientist und Product Owner.</p>
+        </header>
+
+        <section class="wrapper style5">
+          <div class="inner">
+
+            <h3>Meine Skills</h3>
+            <p>Ein technisches Profil von Backend bis Frontend mit Weitsicht für Mehrwert mit über 5 Jahren Erfahrung im Bereich Data Science und Business Intelligence.</p>
+            
+            <br>
+
+            <h4>Data Scientist</h4>
+            <p>Im Bereich der Datenwissenschaft umfassen meine Fähigkeiten:</p>
+            <ul>
+              <li><b>Business Intelligence (BI):</b> Expertise mit Tools wie PowerBI, MicroStrategy und Tableau für umfassende Datenvisualisierung und Reporting.</li>
+              <li><b>Analytics:</b> Fundierte Kenntnisse in Python und SQL für die Datenanalyse und -manipulation.</li>
+              <li><b>Machine Learning (ML):</b> Erfahrung in der Konzeption, Entwicklung und Implementierung von ML-Modellen für Vorhersage und Erkenntnisgewinnung.</li>
+              <li><b>Cloud-Plattformen:</b> Kenntnisse in AZURE DEVELOPMENT für skalierbare datengetriebene Projekte und Infrastruktur.</li>
+            </ul>
+
+            <br>
+
+            <h4>Product Owner | Project Management</h4>
+            <p>Als Product Owner verantworte ich die strategische Produktentwicklung und das Management:</p>
+            <ul>
+              <li><b>Stakeholder Management:</b> Durchführung von User-Log-Tracking, WiRE-Rechnungen, Umfragen/NPS-Erhebung und agiles Backlog Management zur Maximierung des Produktwerts.</li>
+              <li><b>Projektmanagement:</b> Zuständigkeit für Budgetbeantragungen, Budget-Tracking, Roadmapping sowie die Anwendung von SAFe und agilen Methoden zur effizienten Projektabwicklung.</li>
+            </ul>
+
+            <hr />
+            
+            <ul class="actions special" style="margin-top: 3em;">
+                <li><a href="#" class="button primary" onclick="openCalendly(); return false;">Erstgespräch vereinbaren</a></li>
+            </ul>
+
+          </div>
+        </section>
+      </article>
+
+      <!-- Calendly Modal -->
+      <div id="calendlyModal" class="calendly-modal">
+        <div class="calendly-modal-content">
+          <span class="close-calendly" onclick="closeCalendly()">&times;</span>
+          <div class="calendly-inline-widget" data-url="https://calendly.com/luitwin/30min" style="min-width:320px;height:630px;"></div>
+        </div>
+      </div>
+
+      <footer id="footer">
+        <ul class="icons">
+          <li><a href="https://www.linkedin.com/in/luitwin-mallmann-18b80510b/?locale=en_US" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+          <li><a href="https://github.com/luttilimburg" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+          <li><a href="mailto:luitwin@hotmail.de" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+          <li>&copy; Luitwin Mallmann</li>
+        </ul>
+      </footer>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Calendly Integration Script -->
+    <script>
+      function openCalendly() {
+        document.getElementById('calendlyModal').style.display = 'block';
+        if (!document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]')) {
+          const script = document.createElement('script');
+          script.src = 'https://assets.calendly.com/assets/external/widget.js';
+          document.body.appendChild(script);
+        }
+      }
+      function closeCalendly() {
+        document.getElementById('calendlyModal').style.display = 'none';
+      }
+      window.onclick = function(event) {
+        if (event.target == document.getElementById('calendlyModal')) {
+          closeCalendly();
+        }
+      }
+    </script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var menuToggle = document.querySelector('.menuToggle');
+        var menu = document.getElementById('menu');
+        if (menuToggle && menu) {
+          menuToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            menu.classList.toggle('open');
+          });
+          document.addEventListener('click', function (e) {
+            if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
+              menu.classList.remove('open');
+            }
+          });
+        }
+      });
+    </script>
+
+  </body>
+</html>
