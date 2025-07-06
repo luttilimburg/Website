@@ -43,28 +43,45 @@
         from {opacity: 0;}
         to {opacity: 1;}
       }
+      /* Removed the padding-top from body as the bar is removed */
+      /* body {
+        padding-top: 48px;
+      } */
+      @media (max-width: 600px) {
+        /* The .top-black-bar rule is no longer needed if the element is removed */
+        /* .top-black-bar {
+          height: 38px;
+        } */
+        /* Removed the padding-top from body for mobile as the bar is removed */
+        /* body {
+          padding-top: 38px;
+        } */
+      }
     </style>
   </head>
   <body class="landing is-preload">
     <div id="page-wrapper">
 
-      <!-- German Button Top Left -->
-      <a href="index.html" style="position: absolute; top: 20px; left: 20px; z-index: 1100; background: rgb(0, 0, 255); color: #ffffff; padding: 8px 16px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-decoration: none; font-weight: 600;">Deutsch</a>
+        
+    <header id="header" class="alt">
+      <a href="index.html" class="german-nav-button" style="margin-left: 24px;">
+        Deutsch
+      </a>
+      
+      <h1><a href="index.html">Luitwin Mallmann</a></h1>
+      <nav id="nav">
+      <ul>
+        <li><a href="#Leistungspaket" class="scrolly">My Service Package</a></li>
+        <li><a href="generic_ENG.html">Expertise</a></li>
+        <li><a href="https://www.linkedin.com/in/luitwin-mallmann-18b80510b/" target="_blank">About Me</a></li>
+        <li><a href="#contact" class="scrolly">Contact</a></li>
+      </ul>
+      </nav>
+    </header>
 
-      <header id="header" class="alt">
-        <h1>
-          <a href="index_ENG.html">Luitwin Mallmann</a>
-        </h1>
-        <nav id="nav">
-          <ul>
-        <li><a href="#my-service-package" class="scrolly">My Service-package</a></li>
-        <li><a href="generic.html">Expertise</a></li>
-        <li><a href="https://www.linkedin.com/in/luitwin-mallmann-18b80510b/" target="_blank">About</a></li>
-        <li><a href="#contact" class="scrolly">contact</li>
-          </ul>
-        </nav>
       </header>
-      <style>
+      <script>
+        
         // Simple menu toggle for mobile navigation
         document.addEventListener('DOMContentLoaded', function() {
           var menuToggle = document.querySelector('.menuToggle');
@@ -93,12 +110,10 @@
         }
       </style>
 
-      <!-- Removed duplicate English button -->
-
       <section id="banner">
         <div class="inner">
             <h2>Luitwin Mallmann Data Science Frankfurt</h2>
-            <p>Your Data Science, AI & BI Partner<br /> from Frankfurt am Main</p>
+            <p>Your Data Science, AI, and BI Partner<br /> from Frankfurt am Main</p>
             <ul class="actions special">
               <li><a href="#" class="button primary" onclick="openCalendly(); return false;">Schedule Initial Consultation</a></li>
             </ul>
@@ -111,14 +126,14 @@
       <section id="one" class="wrapper style1 special" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/pexels-adrien-olichon-1257089-3884487.jpg') center/cover no-repeat; color: #ffffff;">
         <div class="inner">
           <header class="major">
-            <h2 style="color: #ffffff;">Predicting Building Types with Machine Learning</h2>
+            <h2 style="color: #ffffff;">Prediction of Building Types with Machine Learning</h2>
             <p style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5); color: #ffffff;">
-              As part of my master's thesis, I implemented a data science project focused on predicting building types and energy labels of Dutch properties. The goal was to develop machine learning models based on publicly available data from
+              As part of my Master's thesis, I implemented a data science project that focused on predicting building types and energy classes of Dutch properties. The goal was to develop machine learning models based on publicly available data from
               <a href="https://www.kadaster.nl" target="_blank" style="color: #ffffff;">kadaster.nl</a>
-              that can automatically complete urban datasets and are marketed through
-              <a href="https://geogap.nl/" target="_blank" style="color: #ffffff;">geogap.nl</a>.
-              The complete thesis is available on
-              <a href="https://github.com/luttilimburg/MasterThesis-Using-ML-learning-to-predictthe-building-type-and-energy-label-of-a-residence/blob/main/Luitwn_Mallmann_Masterthesis_Final.pdf" target="_blank" style="color: #ffffff;">GitHub</a>.
+              that can automatically complete urban datasets and are marketed via
+              <a href="https://geogap.nl/" target="_blank" style="color: #ffffff;">geogap.nl</a>
+              . The full thesis is
+              <a href="https://github.com/luttilimburg/MasterThesis-Using-ML-learning-to-predictthe-building-type-and-energy-label-of-a-residence/blob/main/Luitwn_Mallmann_Masterthesis_Final.pdf" target="_blank" style="color: #ffffff;">available at: GitHub</a>.
             </p>
           </header>
           <ul class="icons major" style="list-style: none; padding: 0; display: flex; justify-content: center; gap: 20px;">
@@ -129,74 +144,73 @@
       </section>
 
       <section id="two" class="wrapper alt style2">
-        <!-- Project 1 -->
         <section class="spotlight">
           <div class="image"><img src="images/LufthansaCargo.png" alt="Lufthansa Cargo Logo" /></div>
           <div class="content">
-            <h2>Air Cargo Forecast with AI<br />(Lufthansa Cargo & Utrecht University)</h2>
+            <h2>Air Cargo Forecasting with AI<br />(Lufthansa Cargo & Utrecht University)</h2>
             <p>
-              This project was conducted in collaboration with two master's students. It focused on predicting air cargo prices and volumes using modern transformer-based time series models. Existing Excel models were replaced with production-ready forecasting solutions.
+              This project was carried out in collaboration with two Master's students. It focused on forecasting air freight prices and volumes. Modern Transformer-based time series models were used. Previous Excel models were replaced by production-ready forecasting models.
             </p>
           </div>
         </section>
-        <!-- Project 2 -->
         <section class="spotlight">
           <div class="image"><img src="images/pexels-yankrukov-8867434.jpg" alt="" /></div>
           <div class="content">
-            <h2>Service Task Forecasting for Staff Planning<br />(Service Center Hahn)</h2>
-            <p>A SARIMAX time series model significantly improved task volume planning in the service center, reducing overstaffing and lowering personnel costs.</p>
+            <h2>Forecasting Service Tasks for Staff Planning<br />(Service Center Hahn)</h2>
+            <p>A SARIMAX time series model significantly improved the planning of task volumes in the Service Center, which reduced over-planning and lowered personnel costs.</p>
           </div>
         </section>
-        <!-- Project 3 -->
         <section class="spotlight">
           <div class="image"><img src="images/pexels-rdne-7947752.jpg" alt="" /></div>
           <div class="content">
-            <h2>Revenue Forecast Monitoring</h2>
-            <p>A PowerBI dashboard tracks monthly revenue forecast accuracy, enabling targeted improvements for long-term forecast optimization.</p>
+            <h2>Monitoring Revenue Forecasts</h2>
+            <p>A PowerBI dashboard tracks the monthly forecast accuracy of revenue and enables targeted improvements for long-term optimization of forecasts.</p>
           </div>
         </section>
       </section>
 
-      <section id="my-service-package" class="wrapper style3 special">
+      <section id="Leistungspaket" class="wrapper style3 special">
         <div class="inner">
           <header class="major">
-            <h2>My Service Portfolio</h2>
+            <h2>My Service Package</h2>
             <p>I combine technical expertise in Data Science & Business Intelligence with experience as an agile project manager and Product Owner.</p>
           </header>
           <ul class="features">
             <li class="icon fa-paper-plane">
               <h3>Python & ML</h3>
-              <p>Using libraries like Pandas, PySpark and Seaborn, I process your data efficiently and develop models that outperform traditional Excel solutions.</p>
+              <p>With libraries like Pandas, PySpark, and Seaborn, I efficiently process your data and develop models that outperform classic Excel solutions.</p>
             </li>
             <li class="icon solid fa-laptop">
               <h3>PowerBI, MicroStrategy, Tableau</h3>
-              <p>Visualizing your data in the tools of your choice with clear communication of results.</p>
+              <p>Visualization of your data in the tools of your choice with clear results communication.</p>
             </li>
             <li class="icon solid fa-code">
               <h3>Data Architecture & Cloud</h3>
-              <p>Consulting on modern, scalable architecture - with focus on Azure, Databricks and Data Factory.</p>
+              <p>Consulting on modern, scalable architecture – with a focus on Azure, Databricks, and Data Factory.</p>
             </li>
             <li class="icon solid fa-headphones-alt">
-              <h3>Training</h3>
-              <p>Customized workshops and coaching for your team - for sustainable competency building.</p>
+              <h3>Training Courses</h3>
+              <p>Tailored workshops and coaching for your team – for sustainable competence building.</p>
             </li>
             <li class="icon fa-heart">
-              <h3>Chatbots and KI Agent</h3>
-              <p>Training and implementation of chatbots or AI agents to automise repetitive tasks and improve customer service or provide a knowledge base for company internal knowledge/p>
+              <h3>Data Storytelling</h3>
+              <p>Presenting results convincingly to embed data-driven decisions in the company.</p>
             </li>
             <li class="icon fa-flag">
               <h3>Product Owner</h3>
-              <p>SCRUM & SAFe certified: Agile project management with clear prioritization, goal orientation and user focus.</p>
+              <p>SCRUM & SAFe certified: Agile project management with clear prioritization, goal orientation, and user focus.</p>
             </li>
           </ul>
         </div>
       </section>
 
+
+
       <section id="contact" class="wrapper style4">
         <div class="inner">
           <header>
-            <h2>Contact Me</h2>
-            <p>Schedule an appointment for a free initial consultation or project discussion.</p>
+            <h2>Contact</h2>
+            <p>Schedule a free initial consultation to discuss your idea or concerns.</p>
           </header>
           <ul class="actions stacked">
             <li><a href="#" class="button fit primary" onclick="openCalendly(); return false;">Schedule Initial Consultation</a></li>
@@ -259,4 +273,3 @@
     </script>
   </body>
 </html>
-
