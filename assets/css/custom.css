@@ -1,0 +1,216 @@
+/* Burger Menu Styles */
+.burger-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  position: relative;
+  z-index: 10001;
+  margin: 10px;
+  border-radius: 8px;
+}
+
+.burger-line {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+/* Burger menu animation */
+.burger-menu-toggle.active .burger-line:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.burger-menu-toggle.active .burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu-toggle.active .burger-line:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+  .burger-menu-toggle {
+    display: block;
+  }
+
+  #nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 250px;
+    background: #2e3842;
+    flex-direction: column;
+    padding: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+  }
+
+  #nav-menu.open {
+    display: flex;
+  }
+
+  #nav-menu li {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  #nav-menu li a {
+    display: block;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+  }
+
+  #nav-menu li:last-child a {
+    border-bottom: none;
+  }
+
+  #nav-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Language switch styles */
+.language-switch {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.8em;
+  letter-spacing: 0.225em;
+  text-transform: uppercase;
+  z-index: 10002;
+  padding: 0.5em 1em;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  margin-left: 1em;
+}
+
+.language-switch:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.flag-icon {
+  margin-right: 0.5em;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  width: 20px;
+  height: 15px;
+  object-fit: cover;
+}
+
+/* Enhanced CTA Button Gradient */
+.button.primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.button.primary:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+  transform: translateY(-2px);
+}
+
+.button.primary:active {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+  transform: translateY(0);
+}
+
+/* Desktop styles */
+@media screen and (min-width: 769px) {
+  .burger-menu-toggle {
+    display: none;
+  }
+
+  #nav-menu {
+    display: flex !important;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+  }
+
+  #nav-menu li {
+    display: inline-block;
+    padding: 0;
+  }
+
+  #nav-menu li a {
+    border: 0;
+    color: #fff;
+    display: block;
+    font-size: 0.8em;
+    letter-spacing: 0.225em;
+    padding: 0 1.5em;
+    text-transform: uppercase;
+  }
+}
+
+/* Calendly styles */
+
+.calendly-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  animation: fadeIn 0.3s;
+}
+
+.calendly-modal-content {
+  background: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 900px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.close-calendly {
+  color: #aaa;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-calendly:hover {
+  color: #333;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-black-bar {
+    height: 38px;
+  }
+  body {
+    padding-top: 38px;
+  }
+}

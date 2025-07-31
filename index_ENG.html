@@ -1,170 +1,219 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Luitwin Mallmann Data Science</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-    <style>
-      .calendly-modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.8);
-        animation: fadeIn 0.3s;
-      }
-      .calendly-modal-content {
-        background: #fff;
-        margin: 5% auto;
-        padding: 20px;
-        width: 90%;
-        max-width: 900px;
-        border-radius: 8px;
-        position: relative;
-      }
-      .close-calendly {
-        color: #aaa;
-        position: absolute;
-        right: 20px;
-        top: 10px;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-      }
-      .close-calendly:hover {
-        color: #333;
-      }
-      @keyframes fadeIn {
-        from {opacity: 0;}
-        to {opacity: 1;}
-      }
-      /* Removed the padding-top from body as the bar is removed */
-      /* body {
-        padding-top: 48px;
-      } */
-      @media (max-width: 600px) {
-        /* The .top-black-bar rule is no longer needed if the element is removed */
-        /* .top-black-bar {
-          height: 38px;
-        } */
-        /* Removed the padding-top from body for mobile as the bar is removed */
-        /* body {
-          padding-top: 38px;
-        } */
-      }
-    </style>
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
   </head>
   <body class="landing is-preload">
+    <div class="top-black-bar"></div>
     <div id="page-wrapper">
-
-        
-    <header id="header" class="alt">
-      <a href="index.html" class="german-nav-button" style="margin-left: 24px;">
-        Deutsch
-      </a>
-      
-      <h1><a href="index.html">Luitwin Mallmann</a></h1>
-      <nav id="nav">
-      <ul>
-        <li><a href="#Leistungspaket" class="scrolly">My Service Package</a></li>
-        <li><a href="generic_ENG.html">Expertise</a></li>
-        <li><a href="https://www.linkedin.com/in/luitwin-mallmann-18b80510b/" target="_blank">About Me</a></li>
-        <li><a href="#contact" class="scrolly">Contact</a></li>
-      </ul>
-      </nav>
-    </header>
-
+      <header id="header" class="alt">
+        <a href="index.html" class="language-switch">
+          <img src="images/de.svg" alt="Deutsch" class="flag-icon" />
+          Deutsch
+        </a>
+        <nav id="nav">
+          <button
+            class="burger-menu-toggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+          >
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </button>
+          <ul id="nav-menu">
+            <li>
+              <a href="#Leistungspaket" class="scrolly">My Service Package</a>
+            </li>
+            <li><a href="generic_ENG.html">Expertise</a></li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/luitwin-mallmann-18b80510b/"
+                target="_blank"
+                >About Me</a
+              >
+            </li>
+            <li><a href="#contact" class="scrolly">Contact</a></li>
+          </ul>
+        </nav>
       </header>
-      <script>
-        
-        // Simple menu toggle for mobile navigation
-        document.addEventListener('DOMContentLoaded', function() {
-          var menuToggle = document.querySelector('.menuToggle');
-          var menu = document.getElementById('menu');
-          if (menuToggle && menu) {
-            menuToggle.addEventListener('click', function(e) {
-              e.preventDefault();
-              menu.classList.toggle('open');
-            });
-            // Optional: close menu when clicking outside
-            document.addEventListener('click', function(e) {
-              if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
-                menu.classList.remove('open');
-              }
-            });
-          }
-        });
-      </script>
-      <style>
-        /* Add CSS for menu open/close */
-        #menu {
-          display: none;
-        }
-        #menu.open {
-          display: block;
-        }
-      </style>
-
       <section id="banner">
         <div class="inner">
-            <h2>Luitwin Mallmann Data Science Frankfurt</h2>
-            <p>Your Data Science, AI, and BI Partner<br /> from Frankfurt am Main</p>
-            <ul class="actions special">
-              <li><a href="#" class="button primary" onclick="openCalendly(); return false;">Schedule Initial Consultation</a></li>
-            </ul>
-            <img src="images/Bild_Luitwin_Mallmann.jpg" alt="Luitwin Mallmann"
-              style="margin-top: -2em; max-width: 250px; width: 100%; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);" />
+          <h2>Luitwin Mallmann Data Science</h2>
+          <p>
+            Your Data Science, AI, and BI Partner<br />
+            from Frankfurt am Main
+          </p>
+          <ul class="actions special">
+            <li>
+              <a
+                href="#"
+                class="button primary"
+                onclick="openCalendly(); return false;"
+                >Schedule Initial Consultation</a
+              >
+            </li>
+          </ul>
+          <img
+            src="images/Bild_Luitwin_Mallmann.jpg"
+            alt="Luitwin Mallmann"
+            style="
+              margin-top: -2em;
+              max-width: 250px;
+              width: 100%;
+              border-radius: 12px;
+              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            "
+          />
         </div>
         <a href="#one" class="more scrolly">My Projects</a>
       </section>
 
-      <section id="one" class="wrapper style1 special" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/pexels-adrien-olichon-1257089-3884487.jpg') center/cover no-repeat; color: #ffffff;">
+      <section
+        id="one"
+        class="wrapper style1 special"
+        style="
+          background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+            url('images/pexels-adrien-olichon-1257089-3884487.jpg') center/cover
+              no-repeat;
+          color: #ffffff;
+        "
+      >
         <div class="inner">
           <header class="major">
-            <h2 style="color: #ffffff;">Prediction of Building Types with Machine Learning</h2>
-            <p style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5); color: #ffffff;">
-              As part of my Master's thesis, I implemented a data science project that focused on predicting building types and energy classes of Dutch properties. The goal was to develop machine learning models based on publicly available data from
-              <a href="https://www.kadaster.nl" target="_blank" style="color: #ffffff;">kadaster.nl</a>
-              that can automatically complete urban datasets and are marketed via
-              <a href="https://geogap.nl/" target="_blank" style="color: #ffffff;">geogap.nl</a>
+            <h2 style="color: #ffffff">
+              Prediction of Building Types with Machine Learning
+            </h2>
+            <p
+              style="
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+                color: #ffffff;
+              "
+            >
+              As part of my Master's thesis, I implemented a data science
+              project that focused on predicting building types and energy
+              classes of Dutch properties. The goal was to develop machine
+              learning models based on publicly available data from
+              <a
+                href="https://www.kadaster.nl"
+                target="_blank"
+                style="color: #ffffff"
+                >kadaster.nl</a
+              >
+              that can automatically complete urban datasets and are marketed
+              via
+              <a
+                href="https://geogap.nl/"
+                target="_blank"
+                style="color: #ffffff"
+                >geogap.nl</a
+              >
               . The full thesis is
-              <a href="https://github.com/luttilimburg/MasterThesis-Using-ML-learning-to-predictthe-building-type-and-energy-label-of-a-residence/blob/main/Luitwn_Mallmann_Masterthesis_Final.pdf" target="_blank" style="color: #ffffff;">available at: GitHub</a>.
+              <a
+                href="https://github.com/luttilimburg/MasterThesis-Using-ML-learning-to-predictthe-building-type-and-energy-label-of-a-residence/blob/main/Luitwn_Mallmann_Masterthesis_Final.pdf"
+                target="_blank"
+                style="color: #ffffff"
+                >available at: GitHub</a
+              >.
             </p>
           </header>
-          <ul class="icons major" style="list-style: none; padding: 0; display: flex; justify-content: center; gap: 20px;">
-            <li><img src="images/GeoGapLogo.jpg" alt="GeoGap Logo" style="height: 80px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" /></li>
-            <li><img src="images/Herunterladen.png" alt="Partner Logo" style="height: 80px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" /></li>
+          <ul
+            class="icons major"
+            style="
+              list-style: none;
+              padding: 0;
+              display: flex;
+              justify-content: center;
+              gap: 2rem;
+              align-items: center;
+            "
+          >
+            <li style="padding-right: 0">
+              <img
+                src="images/GeoGapLogo.jpg"
+                alt="GeoGap Logo"
+                style="
+                  height: 80px;
+                  border-radius: 8px;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                "
+              />
+            </li>
+            <li>
+              <img
+                src="images/uu-logo.svg"
+                alt="Partner Logo"
+                style="
+                  height: 80px;
+                  width: 200px;
+                  padding-left: 10px;
+                  border-radius: 8px;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                  background-color: #ffffff;
+                "
+              />
+            </li>
           </ul>
         </div>
       </section>
 
       <section id="two" class="wrapper alt style2">
         <section class="spotlight">
-          <div class="image"><img src="images/LufthansaCargo.png" alt="Lufthansa Cargo Logo" /></div>
+          <div class="image">
+            <img src="images/LufthansaCargo.png" alt="Lufthansa Cargo Logo" />
+          </div>
           <div class="content">
-            <h2>Air Cargo Forecasting with AI<br />(Lufthansa Cargo & Utrecht University)</h2>
+            <h2>
+              Air Cargo Forecasting with AI<br />(Lufthansa Cargo & Utrecht
+              University)
+            </h2>
             <p>
-              This project was carried out in collaboration with two Master's students. It focused on forecasting air freight prices and volumes. Modern Transformer-based time series models were used. Previous Excel models were replaced by production-ready forecasting models.
+              This project was carried out in collaboration with two Master's
+              students. It focused on forecasting air freight prices and
+              volumes. Modern Transformer-based time series models were used.
+              Previous Excel models were replaced by production-ready
+              forecasting models.
             </p>
           </div>
         </section>
         <section class="spotlight">
-          <div class="image"><img src="images/pexels-yankrukov-8867434.jpg" alt="" /></div>
+          <div class="image">
+            <img src="images/pexels-yankrukov-8867434.jpg" alt="" />
+          </div>
           <div class="content">
-            <h2>Forecasting Service Tasks for Staff Planning<br />(Service Center Hahn)</h2>
-            <p>A SARIMAX time series model significantly improved the planning of task volumes in the Service Center, which reduced over-planning and lowered personnel costs.</p>
+            <h2>
+              Forecasting Service Tasks for Staff Planning<br />(Service Center
+              Hahn)
+            </h2>
+            <p>
+              A SARIMAX time series model significantly improved the planning of
+              task volumes in the Service Center, which reduced over-planning
+              and lowered personnel costs.
+            </p>
           </div>
         </section>
         <section class="spotlight">
-          <div class="image"><img src="images/pexels-rdne-7947752.jpg" alt="" /></div>
+          <div class="image">
+            <img src="images/pexels-rdne-7947752.jpg" alt="" />
+          </div>
           <div class="content">
             <h2>Monitoring Revenue Forecasts</h2>
-            <p>A PowerBI dashboard tracks the monthly forecast accuracy of revenue and enables targeted improvements for long-term optimization of forecasts.</p>
+            <p>
+              A PowerBI dashboard tracks the monthly forecast accuracy of
+              revenue and enables targeted improvements for long-term
+              optimization of forecasts.
+            </p>
           </div>
         </section>
       </section>
@@ -173,48 +222,81 @@
         <div class="inner">
           <header class="major">
             <h2>My Service Package</h2>
-            <p>I combine technical expertise in Data Science & Business Intelligence with experience as an agile project manager and Product Owner.</p>
+            <p>
+              I combine technical expertise in Data Science & Business
+              Intelligence with experience as an agile project manager and
+              Product Owner.
+            </p>
           </header>
           <ul class="features">
             <li class="icon fa-paper-plane">
               <h3>Python & ML</h3>
-              <p>With libraries like Pandas, PySpark, and Seaborn, I efficiently process your data and develop models that outperform classic Excel solutions.</p>
+              <p>
+                With libraries like Pandas, PySpark, and Seaborn, I efficiently
+                process your data and develop models that outperform classic
+                Excel solutions.
+              </p>
             </li>
             <li class="icon solid fa-laptop">
               <h3>PowerBI, MicroStrategy, Tableau</h3>
-              <p>Visualization of your data in the tools of your choice with clear results communication.</p>
+              <p>
+                Visualization of your data in the tools of your choice with
+                clear results communication.
+              </p>
             </li>
             <li class="icon solid fa-code">
               <h3>Data Architecture & Cloud</h3>
-              <p>Consulting on modern, scalable architecture – with a focus on Azure, Databricks, and Data Factory.</p>
+              <p>
+                Consulting on modern, scalable architecture – with a focus on
+                Azure, Databricks, and Data Factory.
+              </p>
             </li>
             <li class="icon solid fa-headphones-alt">
               <h3>Training Courses</h3>
-              <p>Tailored workshops and coaching for your team – for sustainable competence building.</p>
+              <p>
+                Tailored workshops and coaching for your team – for sustainable
+                competence building.
+              </p>
             </li>
             <li class="icon fa-heart">
               <h3>Data Storytelling</h3>
-              <p>Presenting results convincingly to embed data-driven decisions in the company.</p>
+              <p>
+                Presenting results convincingly to embed data-driven decisions
+                in the company.
+              </p>
             </li>
             <li class="icon fa-flag">
               <h3>Product Owner</h3>
-              <p>SCRUM & SAFe certified: Agile project management with clear prioritization, goal orientation, and user focus.</p>
+              <p>
+                SCRUM & SAFe certified: Agile project management with clear
+                prioritization, goal orientation, and user focus.
+              </p>
             </li>
           </ul>
         </div>
       </section>
 
-
-
       <section id="contact" class="wrapper style4">
         <div class="inner">
           <header>
             <h2>Contact</h2>
-            <p>Schedule a free initial consultation to discuss your idea or concerns.</p>
+            <p>
+              Schedule a free initial consultation to discuss your idea or
+              concerns.
+            </p>
           </header>
           <ul class="actions stacked">
-            <li><a href="#" class="button fit primary" onclick="openCalendly(); return false;">Schedule Initial Consultation</a></li>
-            <li><a href="mailto:your@email.com" class="button fit">Send Email</a></li>
+            <li>
+              <a
+                href="#"
+                class="button fit primary"
+                onclick="openCalendly(); return false;"
+                >Schedule Initial Consultation</a
+              >
+            </li>
+            <li>
+              <a href="mailto:your@email.com" class="button fit">Send Email</a>
+            </li>
           </ul>
         </div>
       </section>
@@ -222,18 +304,35 @@
       <div id="calendlyModal" class="calendly-modal">
         <div class="calendly-modal-content">
           <span class="close-calendly" onclick="closeCalendly()">&times;</span>
-          <div class="calendly-inline-widget" data-url="https://calendly.com/luitwin/30min" style="min-width:320px;height:630px;"></div>
+          <div
+            class="calendly-inline-widget"
+            data-url="https://calendly.com/luitwin/30min"
+            style="min-width: 320px; height: 630px"
+          ></div>
         </div>
       </div>
 
       <footer id="footer">
         <ul class="icons">
-          <li><a href="https://www.linkedin.com/in/luitwin-mallmann-18b80510b/" class="icon brands fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
-          <li><a href="https://github.com/luttilimburg" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/luitwin-mallmann-18b80510b/"
+              class="icon brands fa-linkedin"
+              target="_blank"
+              ><span class="label">LinkedIn</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/luttilimburg"
+              class="icon brands fa-github"
+              target="_blank"
+              ><span class="label">GitHub</span></a
+            >
+          </li>
         </ul>
         <p>&copy; 2025 Luitwin Mallmann</p>
       </footer>
-
     </div>
 
     <script src="assets/js/jquery.min.js"></script>
@@ -246,28 +345,87 @@
     <script src="assets/js/main.js"></script>
     <script>
       // Security solution for missing JS function
-      window.addEventListener('load', () => {
-        document.body.classList.remove('is-preload');
+      window.addEventListener("load", () => {
+        document.body.classList.remove("is-preload");
       });
 
       function openCalendly() {
-        document.getElementById('calendlyModal').style.display = 'block';
+        document.getElementById("calendlyModal").style.display = "block";
         // Load Calendly widget script dynamically if not already loaded
-        if (!document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]')) {
-          const script = document.createElement('script');
-          script.src = 'https://assets.calendly.com/assets/external/widget.js';
+        if (
+          !document.querySelector(
+            'script[src="https://assets.calendly.com/assets/external/widget.js"]'
+          )
+        ) {
+          const script = document.createElement("script");
+          script.src = "https://assets.calendly.com/assets/external/widget.js";
           document.body.appendChild(script);
         }
       }
-      
+
       function closeCalendly() {
-        document.getElementById('calendlyModal').style.display = 'none';
+        document.getElementById("calendlyModal").style.display = "none";
       }
       // Close when clicking outside modal
-      window.addEventListener('click', function(event) {
-        const calendlyModal = document.getElementById('calendlyModal');
+      window.addEventListener("click", function (event) {
+        const calendlyModal = document.getElementById("calendlyModal");
         if (calendlyModal && event.target == calendlyModal) {
           closeCalendly();
+        }
+      });
+    </script>
+
+    <script>
+      // Burger menu functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const burgerToggle = document.querySelector(".burger-menu-toggle");
+        const navMenu = document.getElementById("nav-menu");
+
+        if (burgerToggle && navMenu) {
+          burgerToggle.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Toggle menu visibility
+            navMenu.classList.toggle("open");
+
+            // Toggle burger animation
+            burgerToggle.classList.toggle("active");
+
+            // Update ARIA attributes for accessibility
+            const isExpanded = navMenu.classList.contains("open");
+            burgerToggle.setAttribute("aria-expanded", isExpanded);
+          });
+
+          // Close menu when clicking on a link
+          navMenu.addEventListener("click", function (e) {
+            if (e.target.tagName === "A") {
+              navMenu.classList.remove("open");
+              burgerToggle.classList.remove("active");
+              burgerToggle.setAttribute("aria-expanded", "false");
+            }
+          });
+
+          // Close menu when clicking outside
+          document.addEventListener("click", function (e) {
+            if (
+              !navMenu.contains(e.target) &&
+              !burgerToggle.contains(e.target)
+            ) {
+              navMenu.classList.remove("open");
+              burgerToggle.classList.remove("active");
+              burgerToggle.setAttribute("aria-expanded", "false");
+            }
+          });
+
+          // Close menu on window resize if switching to desktop
+          window.addEventListener("resize", function () {
+            if (window.innerWidth > 768) {
+              navMenu.classList.remove("open");
+              burgerToggle.classList.remove("active");
+              burgerToggle.setAttribute("aria-expanded", "false");
+            }
+          });
         }
       });
     </script>
