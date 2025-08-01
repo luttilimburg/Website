@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Luitwin Mallmann - Expertise</title>
     <meta charset="utf-8" />
+    <title>Luitwin Mallmann Data Science Frankfurt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     <style>
-      /* Calendar Modal Styles */
       .calendly-modal {
         display: none;
         position: fixed;
@@ -44,19 +44,41 @@
         from {opacity: 0;}
         to {opacity: 1;}
       }
+      /* Remove any grey background or margin from top elements */
+      body, #page-wrapper, header#header.alt {
+        background: transparent !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
     </style>
   </head>
   <body class="is-preload">
+    <!-- Removed top-black-bar for full photo at top -->
     <div id="page-wrapper">
 
-      <header id="header">
-        <h1><a href="index.html">Startseite</a></h1>
+      <header id="header" class="alt">
+        <a href="index_ENG.html" class="language-switch">
+          <img src="images/gb.svg" alt="English" class="flag-icon" style="width:20px;height:14px;vertical-align:middle;margin-right:6px;" />
+          English
+        </a>
+        
         <nav id="nav">
-          <ul>
-        <li><a href="index.html" class="scrolly">Startseite</a></li>
-        <li><a href="generic.html">Fachwissen</a></li>
-        <li><a href="https://www.linkedin.com/in/luitwin-mallmann-18b80510b/" target="_blank">Über mich</a></li>
-        <li><a href="index.html#contact" class="scrolly">Kontakt</a></li>
+          <button
+            class="burger-menu-toggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+          >
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </button>
+          <ul id="nav-menu">
+            <li class="mobile-only"><a href="index.html" class="button">Startseite</a></li>
+            <li><a href="index.html#Leistungspaket" class="scrolly">Mein Leistungspaket</a></li>
+            <li><a href="generic.html">Fachwissen</a></li>
+            <li><a href="https://www.linkedin.com/in/luitwin-mallmann-18b80510b/" target="_blank">Über mich</a></li>
+            <li><a href="index.html#contact" class="scrolly">Kontakt</a></li>
           </ul>
         </nav>
       </header>
@@ -81,7 +103,7 @@
               <li><b>Business Intelligence (BI):</b> Expertise mit Tools wie PowerBI, MicroStrategy und Tableau für umfassende Datenvisualisierung und Reporting.</li>
               <li><b>Analytics:</b> Fundierte Kenntnisse in Python und SQL für die Datenanalyse und -manipulation.</li>
               <li><b>Machine Learning (ML):</b> Erfahrung in der Konzeption, Entwicklung und Implementierung von ML-Modellen für Vorhersage und Erkenntnisgewinnung.</li>
-              <li><b>Cloud-Plattformen:</b> Kenntnisse in AZURE DEVELOPMENT für skalierbare datengetriebene Projekte und Infrastruktur.</li>
+              <li><b>Cloud-Plattformen:</b> Kenntnisse in Azure für skalierbare datengetriebene Projekte und Infrastruktur.</li>
             </ul>
 
             <br>
@@ -151,19 +173,19 @@
       }
     </script>
 
-    <!-- Menu Toggle Script -->
+    <!-- Burger Menu Toggle Script -->
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        var menuToggle = document.querySelector('.menuToggle');
-        var menu = document.getElementById('menu');
-        if (menuToggle && menu) {
-          menuToggle.addEventListener('click', function (e) {
+        var burgerToggle = document.querySelector('.burger-menu-toggle');
+        var navMenu = document.getElementById('nav-menu');
+        if (burgerToggle && navMenu) {
+          burgerToggle.addEventListener('click', function (e) {
             e.preventDefault();
-            menu.classList.toggle('open');
+            navMenu.classList.toggle('open');
           });
           document.addEventListener('click', function (e) {
-            if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
-              menu.classList.remove('open');
+            if (!navMenu.contains(e.target) && !burgerToggle.contains(e.target)) {
+              navMenu.classList.remove('open');
             }
           });
         }
