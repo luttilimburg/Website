@@ -8,6 +8,23 @@
     <link rel="stylesheet" href="assets/css/custom.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     <style>
+      @media (max-width: 600px) {
+        .burger-menu-toggle {
+          margin-top: 10px;
+          margin-left: 0;
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .desktop-only {
+          display: none !important;
+        }
+        .mobile-only {
+          display: block !important;
+        }
+        #header .button.mobile-only {
+          margin-bottom: 0;
+        }
+      }
       .calendly-modal {
         display: none;
         position: fixed;
@@ -62,12 +79,12 @@
           English
         </a>
         <a href="index.html" class="button desktop-only" style="margin-left:10px;vertical-align:middle;">Startseite</a>
-        
+
         <nav id="nav">
           <button
             class="burger-menu-toggle"
             aria-label="Toggle navigation menu"
-            aria-expanded="false"
+            aria-expasnded="false"
             aria-controls="nav-menu"
           >
             <span class="burger-line"></span>
