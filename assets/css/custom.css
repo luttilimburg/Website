@@ -206,11 +206,26 @@
   }
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .top-black-bar {
     height: 38px;
   }
-  body {
-    padding-top: 38px;
+  body.top-black-bar-adjust {
+    padding-top: 38px !important;
   }
 }
+
+/* Make CTA button wrap and responsive on mobile */
+@media (max-width: 480px) {
+  .button {
+    white-space: normal;       /* allow text to wrap */
+    text-align: center;        /* center text */
+    line-height: 1.4;          /* better spacing */
+    font-size: 0.9rem;         /* slightly smaller for small screens */
+    padding: 0.6em 1em;        /* adjust padding */
+    word-break: break-word;    /* prevent overflow */
+    overflow-wrap: break-word; /* broader compatibility */
+  }
+}
+
+
