@@ -364,6 +364,7 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+
     <script>
       // Security solution for missing JS function
       window.addEventListener("load", () => {
@@ -449,6 +450,30 @@
           });
         }
       });
+    </script>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyC6NoywIa0IOrDji1truVivCkl_Yx_nVag",
+        authDomain: "log-in-tracker.firebaseapp.com",
+        projectId: "log-in-tracker",
+        storageBucket: "log-in-tracker.firebasestorage.app",
+        messagingSenderId: "924712629483",
+        appId: "1:924712629483:web:18a2a08cddd35014647aae",
+        measurementId: "G-KZL2EGKP6S"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
     </script>
   </body>
 </html>
