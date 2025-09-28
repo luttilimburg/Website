@@ -228,4 +228,49 @@
   }
 }
 
+.responsive-project-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+}
+
+.responsive-project-btn .more.scrolly {
+  font-size: 1.2em;
+  padding: 0.8em 2em;
+  border-radius: 30px;
+  background: transparent; /* Remove blue background */
+  color: #fff;             /* White text */
+  text-decoration: none;
+  box-shadow: none;        /* Remove shadow */
+  border: 2px solid #fff;  /* Optional: white border for visibility */
+  display: inline-block;
+  max-width: 90vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.responsive-project-btn .more.scrolly:hover {
+  background: rgba(255,255,255,0.1); /* Subtle hover effect */
+  color: #fff;
+  border-color: #fff;
+}
+
+@media (max-width: 600px) {
+  .responsive-project-btn {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+  }
+  .responsive-project-btn .more.scrolly {
+    font-size: 1em;
+    padding: 0.7em 1em;
+    width: 95vw;
+    max-width: 320px;
+  }
+}
+
 
