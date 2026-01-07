@@ -160,7 +160,6 @@
 }
 
 /* Calendly styles */
-
 .calendly-modal {
   display: none;
   position: fixed;
@@ -198,79 +197,39 @@
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-@media screen and (max-width: 600px) {
-  .top-black-bar {
-    height: 38px;
-  }
-  body.top-black-bar-adjust {
-    padding-top: 38px !important;
-  }
-}
+/* === COOKIE BANNER (NEW, DSGVO) === */
 
-/* Make CTA button wrap and responsive on mobile */
-@media (max-width: 480px) {
-  .button {
-    white-space: normal;       /* allow text to wrap */
-    text-align: center;        /* center text */
-    line-height: 1.4;          /* better spacing */
-    font-size: 0.9rem;         /* slightly smaller for small screens */
-    padding: 0.6em 1em;        /* adjust padding */
-    word-break: break-word;    /* prevent overflow */
-    overflow-wrap: break-word; /* broader compatibility */
-  }
-}
-
-.responsive-project-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  margin-top: 1.5em;
-  margin-bottom: 1em;
+  background: rgba(0, 0, 0, 0.95);
+  color: #ffffff;
+  z-index: 10050;
+  padding: 1rem 1.5rem;
 }
 
-.responsive-project-btn .more.scrolly {
-  font-size: 1.2em;
-  padding: 0.8em 2em;
-  border-radius: 30px;
-  background: transparent; /* Remove blue background */
-  color: #fff;             /* White text */
-  text-decoration: none;
-  box-shadow: none;        /* Remove shadow */
-  border: 2px solid #fff;  /* Optional: white border for visibility */
-  display: inline-block;
-  max-width: 90vw;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: background 0.2s, color 0.2s, border 0.2s;
+.cookie-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.responsive-project-btn .more.scrolly:hover {
-  background: rgba(255,255,255,0.1); /* Subtle hover effect */
-  color: #fff;
-  border-color: #fff;
+.cookie-banner a {
+  color: #ffffff;
+  text-decoration: underline;
 }
 
-@media (max-width: 600px) {
-  .responsive-project-btn {
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-  }
-  .responsive-project-btn .more.scrolly {
-    font-size: 1em;
-    padding: 0.7em 1em;
-    width: 95vw;
-    max-width: 320px;
-  }
+.cookie-actions {
+  display: flex;
+  gap: 0.75rem;
 }
-
-
