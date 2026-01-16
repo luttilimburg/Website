@@ -34,8 +34,22 @@
   transform: rotate(45deg) translate(-5px, -6px);
 }
 
-/* Mobile responsive styles */
-@media screen and (max-width: 768px) {
+/* Small laptop styles - reduce spacing */
+@media screen and (max-width: 1280px) and (min-width: 981px) {
+  #nav-menu li a {
+    font-size: 0.7em;
+    letter-spacing: 0.15em;
+    padding: 0 0.8em;
+  }
+
+  .language-switch {
+    font-size: 0.7em;
+    padding: 0.4em 0.8em;
+  }
+}
+
+/* Mobile responsive styles - burger menu for tablets and smaller */
+@media screen and (max-width: 980px) {
   .burger-menu-toggle {
     display: block;
   }
@@ -129,7 +143,7 @@
 }
 
 /* Desktop styles */
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 981px) {
   .burger-menu-toggle {
     display: none;
   }
@@ -232,5 +246,26 @@
 .cookie-actions {
   display: flex;
   gap: 0.75rem;
+}
+
+/* Smooth scrolling fix for mobile - without affecting image quality */
+@media screen and (max-width: 980px) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #page-wrapper {
+    overflow-x: hidden;
+    will-change: scroll-position;
+  }
+
+  #banner,
+  .wrapper.style4 {
+    will-change: transform;
+  }
 }
 
