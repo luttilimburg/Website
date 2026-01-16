@@ -234,22 +234,3 @@
   gap: 0.75rem;
 }
 
-/* Fix for smooth scrolling on mobile devices */
-@media screen and (max-width: 980px) {
-  body.landing #page-wrapper,
-  #main > header,
-  #banner,
-  .wrapper.style4 {
-    background-attachment: scroll !important;
-  }
-}
-
-/* Alternative fix using touch detection for iOS/Android */
-@supports (-webkit-touch-callout: none) {
-  body.landing #page-wrapper,
-  #main > header,
-  #banner,
-  .wrapper.style4 {
-    background-attachment: scroll !important;
-  }
-}
