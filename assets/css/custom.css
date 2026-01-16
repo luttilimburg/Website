@@ -241,12 +241,6 @@
   #banner,
   .wrapper.style4 {
     background-attachment: scroll !important;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
   }
 }
 
