@@ -248,7 +248,7 @@
   gap: 0.75rem;
 }
 
-/* Smooth scrolling fix for mobile - without affecting image quality */
+/* Smooth scrolling fix for mobile */
 @media screen and (max-width: 980px) {
   html {
     scroll-behavior: smooth;
@@ -258,14 +258,10 @@
     -webkit-overflow-scrolling: touch;
   }
 
-  #page-wrapper {
-    overflow-x: hidden;
-    will-change: scroll-position;
-  }
-
-  #banner,
-  .wrapper.style4 {
-    will-change: transform;
+  body.landing #page-wrapper {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center center;
   }
 }
 
