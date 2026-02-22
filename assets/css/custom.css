@@ -248,16 +248,8 @@
   gap: 0.75rem;
 }
 
-/* Smooth scrolling fix for mobile */
+/* Smooth scrolling handled by jQuery scrolly plugin */
 @media screen and (max-width: 980px) {
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    -webkit-overflow-scrolling: touch;
-  }
-
   body.landing #page-wrapper {
     background-attachment: scroll;
     background-size: cover;
