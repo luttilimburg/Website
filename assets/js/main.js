@@ -50,20 +50,9 @@
 				offset: $header.outerHeight()
 			});
 
-	// Menu.
-		$('#menu')
-			.append('<a href="#menu" class="close"></a>')
-			.appendTo($body)
-			.panel({
-				delay: 500,
-				hideOnClick: true,
-				hideOnSwipe: true,
-				resetScroll: true,
-				resetForms: true,
-				side: 'right',
-				target: $body,
-				visibleClass: 'is-menu-visible'
-			});
+	// Menu - now handled by burger menu JavaScript in HTML
+	// (kept for reference, the new burger menu is handled in HTML)
+	// Commented out the old panel-based menu code since it's replaced with burger menu
 
 	// Header.
 		if ($banner.length > 0
