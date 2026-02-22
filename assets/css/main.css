@@ -3665,7 +3665,7 @@ body.is-menu-visible #menu {
   -ms-justify-content: center;
   justify-content: center;
   cursor: default;
-  height: 100vh;
+  height: 66.67vw;
   min-height: 35em;
   overflow: hidden;
   position: relative;
@@ -3903,21 +3903,21 @@ body.is-preload #banner:after {
       rgba(0, 0, 0, 0.25),
       rgba(0, 0, 0, 0.25)
     ),
-    url("../../images/visax-8oni9vTWj7U-unsplash.jpg");
+    url("../../images/banner.jpg");
   background-image: -webkit-linear-gradient(
       top,
       rgba(0, 0, 0, 0.25),
       rgba(0, 0, 0, 0.25)
     ),
-    url("../../images/visax-8oni9vTWj7U-unsplash.jpg");
+    url("../../images/banner.jpg");
   background-image: -ms-linear-gradient(
       top,
       rgba(0, 0, 0, 0.25),
       rgba(0, 0, 0, 0.25)
     ),
-    url("../../images/visax-8oni9vTWj7U-unsplash.jpg");
+    url("../../images/banner.jpg");
   background-image: linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
-    url("../../images/visax-8oni9vTWj7U-unsplash.jpg");
+    url("../../images/banner.jpg");
   background-attachment: scroll;
   background-position: center center;
   background-repeat: no-repeat;
@@ -4055,25 +4055,25 @@ body.landing #page-wrapper {
       rgba(0, 0, 0, 0.25),
       rgba(0, 0, 0, 0.25)
     ),
-    url("../../images/visax-8oni9vTWj7U-unsplash.jpg");
+    url("../../images/banner.jpg");
   background-image: -webkit-linear-gradient(
       top,
       rgba(0, 0, 0, 0.25),
       rgba(0, 0, 0, 0.25)
     ),
-    url("../../images/visax-8oni9vTWj7U-unsplash.jpg");
+    url("../../images/banner.jpg");
   background-image: -ms-linear-gradient(
       top,
       rgba(0, 0, 0, 0.25),
       rgba(0, 0, 0, 0.25)
     ),
-    url("../../images/visax-8oni9vTWj7U-unsplash.jpg");
+    url("../../images/banner.jpg");
   background-image: linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
-    url("../../images/visax-8oni9vTWj7U-unsplash.jpg");
+    url("../../images/banner.jpg");
   background-attachment: scroll;
-  background-position: center center;
+  background-position: top center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% auto;
   padding-top: 0;
 }
 
@@ -4092,21 +4092,21 @@ body.is-mobile.landing .wrapper.style4 {
       rgba(0, 0, 0, 0.25),
       rgba(0, 0, 0, 0.25)
     ),
-    url("../../images/visax-8oni9vTWj7U-unsplash.jpg");
+    url("../../images/banner.jpg");
   background-image: -webkit-linear-gradient(
       top,
       rgba(0, 0, 0, 0.25),
       rgba(0, 0, 0, 0.25)
     ),
-    url("../../images/visax-8oni9vTWj7U-unsplash.jpg");
+    url("../../images/banner.jpg");
   background-image: -ms-linear-gradient(
       top,
       rgba(0, 0, 0, 0.25),
       rgba(0, 0, 0, 0.25)
     ),
-    url("../../images/visax-8oni9vTWj7U-unsplash.jpg");
+    url("../../images/banner.jpg");
   background-image: linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
-    url("../../images/visax-8oni9vTWj7U-unsplash.jpg");
+    url("../../images/banner.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
