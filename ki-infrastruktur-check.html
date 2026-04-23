@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KI-Infrastruktur Check — Luitwin Mallmann Data Science</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0f11;
+    --surface: #16181c;
+    --surface2: #1e2026;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.13);
+    --text: #e8e6e0;
+    --text2: #8a8880;
+    --text3: #555450;
+    --accent: #c8f064;
+    --accent2: #a8d444;
+    --amber: #f0a830;
+    --blue: #60a8f0;
+    --purple: #a888f0;
+    --green: #60d098;
+    --red: #f06870;
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    padding: 3rem 2rem 0;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .brand {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .brand::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .subtitle {
+    font-size: 15px;
+    color: var(--text2);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  /* ── PROGRESS ── */
+  .progress-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .progress-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .progress-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--text3);
+    text-transform: uppercase;
+  }
+  .progress-count {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+  }
+  .progress-bar {
+    height: 2px;
+    background: var(--border2);
+    border-radius: 1px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 1px;
+    transition: width 0.4s cubic-bezier(.4,0,.2,1);
+    width: 0%;
+  }
+
+  /* ── MAIN ── */
+  .main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem 4rem;
+  }
+
+  /* ── QUESTION BLOCK ── */
+  .q-block {
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 12px;
+    background: var(--surface);
+    transition: border-color 0.2s;
+  }
+  .q-block.answered {
+    border-color: rgba(200,240,100,0.2);
+  }
+  .q-number {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--text3);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .q-text {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .q-hint {
+    font-size: 12px;
+    color: var(--text3);
+    margin-bottom: 14px;
+    font-weight: 300;
+  }
+  .opts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .opt {
+    font-size: 13px;
+    padding: 7px 16px;
+    border-radius: 100px;
+    border: 0.5px solid var(--border2);
+    cursor: pointer;
+    background: var(--surface2);
+    color: var(--text2);
+    transition: all 0.15s;
+    user-select: none;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+  }
+  .opt:hover {
+    border-color: rgba(200,240,100,0.35);
+    color: var(--text);
+  }
+  .opt.sel {
+    background: rgba(200,240,100,0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ── RESULT ── */
+  .result {
+    display: none;
+    margin-top: 2rem;
+    border-radius: var(--radius);
+    overflow: hidden;
+    animation: fadeUp 0.5s ease forwards;
+  }
+  .result.show { display: block; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .result-header {
+    padding: 1.5rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .result-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .result-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 4px;
+  }
+  .result-body {
+    padding: 1.25rem 1.5rem;
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.7;
+    font-weight: 300;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .result-scores {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .score-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 12px;
+  }
+  .score-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .score-name {
+    font-size: 12px;
+    color: var(--text2);
+    min-width: 100px;
+    font-weight: 300;
+  }
+  .score-bar-wrap {
+    flex: 1;
+    height: 3px;
+    background: var(--border2);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .score-bar {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.6s cubic-bezier(.4,0,.2,1);
+  }
+  .score-val {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--text3);
+    min-width: 48px;
+    text-align: right;
+  }
+  .result-tags {
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 100px;
+    border: 0.5px solid;
+  }
+  .result-cta {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .cta-text {
+    font-size: 13px;
+    color: var(--text2);
+    font-weight: 300;
+    max-width: 380px;
+  }
+  .cta-text strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--accent);
+    color: #0e0f11;
+    border: none;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.1s;
+    white-space: nowrap;
+  }
+  .cta-btn:hover { background: var(--accent2); transform: translateY(-1px); }
+  .cta-btn:active { transform: translateY(0); }
+  .cta-arrow {
+    font-size: 16px;
+    transition: transform 0.15s;
+  }
+  .cta-btn:hover .cta-arrow { transform: translateX(3px); }
+
+  /* ── FOOTER ── */
+  .footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2rem 2rem 3rem;
+    border-top: 0.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-brand {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text3);
+    letter-spacing: 0.08em;
+  }
+  .footer-link {
+    font-size: 12px;
+    color: var(--text3);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .footer-link:hover { color: var(--accent); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 600px) {
+    .header, .progress-wrap, .main, .footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .result-cta { flex-direction: column; align-items: flex-start; }
+    .cta-btn { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="brand">Luitwin Mallmann Data Science</div>
+  <h1>Welche KI-Infrastruktur<br>passt zu <em>deinem</em> Unternehmen?</h1>
+  <p class="subtitle">6 Fragen — 2 Minuten — eine konkrete Empfehlung welcher Weg von Excel zu produktiver KI für euch der richtige ist.</p>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-meta">
+    <span class="progress-label">Fortschritt</span>
+    <span class="progress-count" id="prog-count">0 / 6</span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="prog-fill"></div></div>
+</div>
+
+<div class="main">
+
+  <div class="q-block" id="qb0">
+    <div class="q-number">Frage 01</div>
+    <div class="q-text">Wie viele verschiedene Datenquellen hat euer Unternehmen?</div>
+    <div class="q-hint">ERP, CRM, Webshop, Excel-Listen, E-Mails, Maschinen, POS — alles zählt</div>
+    <div class="opts" data-q="0">
+      <span class="opt" data-v="0">1–2 Quellen</span>
+      <span class="opt" data-v="1">3–5 Quellen</span>
+      <span class="opt" data-v="2">6–10 Quellen</span>
+      <span class="opt" data-v="3">10+ Quellen</span>
+    </div>
+  </div>
+
+  <div class="q-block" id="qb1">
+    <div class="q-number">Frage 02</div>
+    <div class="q-text">Wie viel Datenvolumen entsteht pro Monat?</div>
+    <div class="q-hint">Grobe Schätzung reicht — Excel-Files, PDFs, Fotos, Logs zusammengerechnet</div>
+    <div class="opts" data-q="1">
+      <span class="opt" data-v="0">Unter 100 MB</span>
+      <span class="opt" data-v="1">100 MB – 1 GB</span>
+      <span class="opt" data-v="2">1 – 10 GB</span>
+      <span class="opt" data-v="3">Über 10 GB</span>
+    </div>
+  </div>
+
+  <div class="q-block" id="qb2">
+    <div class="q-number">Frage 03</div>
+    <div class="q-text">Wie aktuell müssen die Daten für Entscheidungen sein?</div>
+    <div class="q-hint">Wie schnell braucht jemand im Unternehmen die neuesten Zahlen?</div>
+    <div class="opts" data-q="2">
+      <span class="opt" data-v="0">Monatlich reicht</span>
+      <span class="opt" data-v="1">Wöchentlich</span>
+      <span class="opt" data-v="2">Täglich</span>
+      <span class="opt" data-v="3">Echtzeit / stündlich</span>
+    </div>
+  </div>
+
+  <div class="q-block" id="qb3">
+    <div class="q-number">Frage 04</div>
+    <div class="q-text">Gibt es jemanden der das System langfristig betreibt?</div>
+    <div class="q-hint">Intern oder externer IT-Dienstleister der regelmäßig da ist</div>
+    <div class="opts" data-q="3">
+      <span class="opt" data-v="0">Nein, niemand</span>
+      <span class="opt" data-v="1">Externer IT-Dienstleister gelegentlich</span>
+      <span class="opt" data-v="2">Fester IT-Dienstleister oder interner IT-Mensch</span>
+      <span class="opt" data-v="3">Eigener Data Engineer / IT-Team</span>
+    </div>
+  </div>
+
+  <div class="q-block" id="qb4">
+    <div class="q-number">Frage 05</div>
+    <div class="q-text">Wie sensibel sind eure Daten?</div>
+    <div class="q-hint">Personenbezogene Daten, Betriebsgeheimnisse, Kundendaten, Finanzdaten</div>
+    <div class="opts" data-q="4">
+      <span class="opt" data-v="0">Kaum sensibel</span>
+      <span class="opt" data-v="1">Mäßig — Kundenlisten, Finanzdaten</span>
+      <span class="opt" data-v="2">Hoch — Gehälter, Verträge, Gesundheit</span>
+      <span class="opt" data-v="3">Sehr hoch — reguliert: Medizin, Finanzen, Recht</span>
+    </div>
+  </div>
+
+  <div class="q-block" id="qb5">
+    <div class="q-number">Frage 06</div>
+    <div class="q-text">Was ist das konkrete Ziel mit KI?</div>
+    <div class="q-hint">Was soll am Ende rauskommen — ehrlich und konkret</div>
+    <div class="opts" data-q="5">
+      <span class="opt" data-v="0">Bessere Übersicht / Berichte</span>
+      <span class="opt" data-v="1">Vorhersagen — Absatz, Ausfälle, Nachfrage</span>
+      <span class="opt" data-v="2">Dokumente / Wissen durchsuchen</span>
+      <span class="opt" data-v="3">Automatisierung von Prozessen</span>
+    </div>
+  </div>
+
+  <div class="result" id="result"></div>
+
+</div>
+
+<div class="footer">
+  <span class="footer-brand">MALLMANN DATA SCIENCE · Frankfurt am Main</span>
+  <a class="footer-link" href="https://mallmanndatascience.de">mallmanndatascience.de</a>
+</div>
+
+<script>
+const CALENDLY = 'https://calendly.com/luitwin-mallmann';
+
+const answers = [null, null, null, null, null, null];
+
+const qLabels = ['Datenquellen', 'Volumen', 'Aktualität', 'IT-Kapazität', 'Sensibilität', 'KI-Ziel'];
+const scoreLabels = [['Minimal','Niedrig','Mittel','Hoch'],['Minimal','Niedrig','Mittel','Hoch'],['Selten','Wöchentlich','Täglich','Echtzeit'],['Niemand','Gelegentlich','Fest','Intern'],['Kaum','Mäßig','Hoch','Sehr hoch'],['Berichte','Prognosen','Wissen','Automation']];
+
+const recs = [
+  {
+    min: 0, max: 4,
+    accent: '#60d098',
+    tagStyle: 'color:#60d098;border-color:rgba(96,208,152,0.3)',
+    label: 'Empfehlung',
+    title: 'SharePoint + Power BI',
+    body: 'Euer Unternehmen steht am Anfang der Digitalisierung — das ist der richtige Moment für einen soliden ersten Schritt. SharePoint ist in fast jeder M365-Lizenz bereits enthalten und löst das eigentliche Problem: eine einzige Quelle der Wahrheit, keine drei verschiedenen Excel-Versionen mehr. Power BI verbindet sich direkt und liefert erste Dashboards ohne Datenbank. Kein Overkill, kein System das niemand betreibt.',
+    tags: ['SharePoint', 'OneDrive', 'Power BI', 'M365', 'Kein Data Engineer nötig'],
+    ctaText: 'In einem kostenlosen Gespräch zeige ich euch wie ihr in 2 Wochen eine funktionierende Datenbasis habt.',
+    barColor: '#60d098'
+  },
+  {
+    min: 5, max: 9,
+    accent: '#60a8f0',
+    tagStyle: 'color:#60a8f0;border-color:rgba(96,168,240,0.3)',
+    label: 'Empfehlung',
+    title: 'Azure SQL + dbt + Power BI',
+    body: 'Ihr seid bereit für eine echte Datenbankstruktur. Azure SQL ist managed, DSGVO-konform auf EU-Servern und skaliert problemlos mit. dbt ermöglicht es, Datentransformationen als versionierten SQL-Code zu schreiben — nachvollziehbar, wartbar, kein verstecktes Excel-Wissen mehr. Power BI als Reporting-Layer obendrauf. Erste automatische Pipelines mit Power Automate oder einem einfachen Python-Script.',
+    tags: ['Azure SQL', 'dbt Core', 'Power BI', 'Power Automate', 'DSGVO-konform'],
+    ctaText: 'Ich zeige euch wie das konkret für euren Stack aussieht — in einem kostenlosen Erstgespräch.',
+    barColor: '#60a8f0'
+  },
+  {
+    min: 10, max: 14,
+    accent: '#a888f0',
+    tagStyle: 'color:#a888f0;border-color:rgba(168,136,240,0.3)',
+    label: 'Empfehlung',
+    title: 'Azure Data Lake + dbt + ADF',
+    body: 'Ihr habt mehrere Datenquellen, nennenswerte Datenmenge und wahrscheinlich schon einen IT-Partner. Hier lohnt sich ein richtiges Datenfundament: Azure Data Lake Gen2 als Storage, dbt für die Transformation, Azure Data Factory für automatisierte Pipelines. Power BI als Reporting-Layer. Diese Architektur macht analytische KI — Absatzprognose, Anomalieerkennung, Predictive Maintenance — in wenigen Monaten möglich.',
+    tags: ['Azure Data Lake Gen2', 'dbt', 'Azure Data Factory', 'Power BI', 'Medallion-Architektur'],
+    ctaText: 'Gemeinsam entwickeln wir eine Architektur die zu eurer Größe und eurem Budget passt.',
+    barColor: '#a888f0'
+  },
+  {
+    min: 15, max: 99,
+    accent: '#f0a830',
+    tagStyle: 'color:#f0a830;border-color:rgba(240,168,48,0.3)',
+    label: 'Empfehlung',
+    title: 'Vollständige Cloud-Architektur',
+    body: 'Euer Unternehmen hat komplexe Anforderungen: viele Quellen, hohes Volumen, Echtzeit-Bedarf oder stark regulierte Daten. Hier braucht es eine durchdachte Architektur — Azure Synapse oder Databricks als Plattform, Azure Data Factory für Ingestion, ein starkes IAM- und Datenschutzkonzept von Anfang an. Das ist der Punkt wo ein erfahrener Begleiter den Unterschied zwischen einem erfolgreichen Projekt und einem gescheiterten macht.',
+    tags: ['Azure Synapse / Databricks', 'ADF', 'IAM & Governance', 'DSGVO-Konzept', 'Strategische Begleitung'],
+    ctaText: 'Das ist genau die Art von Projekt bei dem ich begleite — von der Architektur bis zur ersten produktiven KI.',
+    barColor: '#f0a830'
+  }
+];
+
+document.querySelectorAll('.opts').forEach(group => {
+  group.querySelectorAll('.opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const q = parseInt(group.dataset.q);
+      group.querySelectorAll('.opt').forEach(b => b.classList.remove('sel'));
+      btn.classList.add('sel');
+      answers[q] = parseInt(btn.dataset.v);
+      document.getElementById('qb' + q).classList.add('answered');
+      updateProgress();
+      const done = answers.filter(a => a !== null).length;
+      if (done === 6) {
+        setTimeout(showResult, 300);
+      }
+    });
+  });
+});
+
+function updateProgress() {
+  const done = answers.filter(a => a !== null).length;
+  document.getElementById('prog-fill').style.width = (done / 6 * 100) + '%';
+  document.getElementById('prog-count').textContent = done + ' / 6';
+}
+
+function showResult() {
+  const score = answers.reduce((s, v) => s + v, 0);
+  const rec = recs.find(r => score >= r.min && score <= r.max) || recs[recs.length - 1];
+  const el = document.getElementById('result');
+
+  const tagsHtml = rec.tags.map(t =>
+    `<span class="tag" style="${rec.tagStyle}">${t}</span>`
+  ).join('');
+
+  const barsHtml = answers.map((v, i) => `
+    <div class="score-row">
+      <span class="score-name">${qLabels[i]}</span>
+      <div class="score-bar-wrap">
+        <div class="score-bar" style="width:${Math.round(v/3*100)}%;background:${rec.barColor}"></div>
+      </div>
+      <span class="score-val">${scoreLabels[i][v]}</span>
+    </div>
+  `).join('');
+
+  el.innerHTML = `
+    <div style="background:#16181c;border:0.5px solid ${rec.accent}22;border-radius:12px;overflow:hidden">
+      <div class="result-header" style="background:${rec.accent}0d">
+        <div class="result-label" style="color:${rec.accent};font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px">${rec.label}</div>
+        <div class="result-title" style="font-family:'DM Serif Display',serif;font-size:1.6rem;font-weight:400;color:#e8e6e0">${rec.title}</div>
+      </div>
+      <div class="result-body">${rec.body}</div>
+      <div class="result-scores">
+        <div class="score-label">Euer Profil</div>
+        ${barsHtml}
+      </div>
+      <div class="result-tags">${tagsHtml}</div>
+      <div class="result-cta">
+        <p class="cta-text"><strong>Nächster Schritt:</strong> ${rec.ctaText}</p>
+        <a class="cta-btn" href="${CALENDLY}" target="_blank" rel="noopener">
+          Kostenloses Gespräch buchen
+          <span class="cta-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  `;
+
+  el.classList.add('show');
+  setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+}
+</script>
+</body>
+</html>
